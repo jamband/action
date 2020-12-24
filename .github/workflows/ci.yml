@@ -9,6 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [7.3, 7.4, 8.0]
 
     steps:
       - name: Checkout code
@@ -17,7 +21,9 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: ${{ matrix.php }}
+          tools: composer:v2
+          coverage: none
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
