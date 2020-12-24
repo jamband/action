@@ -7,7 +7,7 @@ Test repository for github actions.
 
 ## Requirements
 
-PHP 7.2 or later
+PHP 7.4 or later
 
 ## Installation
 
